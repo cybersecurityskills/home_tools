@@ -26,4 +26,3 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
          while True:
             conn.sendall(b"This is a banner\n") 
             break
-
