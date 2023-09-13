@@ -7,13 +7,13 @@ def handler(signumb, frame):
 
 signal.signal(signal.SIGINT, handler)
 
-if len(sys.argv) < 2:
-   print("Usage: socket_listener.py 8023") 
+if len(sys.argv) < 3:
+   print("Usage: socket_listener.py 192.168.200.4 8023") 
    sys.exit()
 
 
-HOST = "10.0.4.1"  # IP address to bind to 
-PORT = int(sys.argv[1])  # Port to listen on (Ports < 1023 require root privileges) 
+HOST = sys.argv[1]  # IP address to bind to 
+PORT = int(sys.argv[2])  # Port to listen on (Ports < 1023 require root privileges) 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
