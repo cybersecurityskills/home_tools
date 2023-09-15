@@ -24,4 +24,4 @@ ip = IP(src=sys.argv[2],dst=countries[sys.argv[1]])/TCP(sport=sport,dport=int(sy
 p1 = (ip)
 print("Sending",p1,"TTL",p1.ttl)
  
-sendp(p1,iface="enp0s8")
+send(p1,iface="enp0s8")
