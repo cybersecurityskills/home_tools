@@ -1,5 +1,6 @@
 from scapy.all import *
 import sys
+import random
  
 countries = {}
 countries["CHINA"] = '183.136.225.31'
@@ -16,9 +17,10 @@ if len(sys.argv) < 3:
   print("Usage: packet_send_country.py COUNTRY SRC_IP DST_PORT\n")
   print("Valid countries are:"," ".join(countries.keys()))
   sys.exit()
+
+sport=random.randint(1024,65535)
  
- 
-ip = IP(src=sys.argv[1],dst=countries[sys.argv[2]])/TCP(dport=int(sys.argv[3]),flags='S')
+ip = IP(src=sys.argv[1],dst=countries[sys.argv[2]])/TCP(sport=sport,dport=int(sys.argv[3]),flags='S')
 p1 = (ip)
 print("Sending",p1,"TTL",p1.ttl)
  
