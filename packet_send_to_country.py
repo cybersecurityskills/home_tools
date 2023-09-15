@@ -20,7 +20,7 @@ if len(sys.argv) < 3:
 
 sport=random.randint(1024,65535)
  
-ip = IP(src=sys.argv[1],dst=countries[sys.argv[2]])/TCP(sport=sport,dport=int(sys.argv[3]),flags='S')
+ip = IP(src=sys.argv[2],dst=countries[sys.argv[1]])/TCP(sport=sport,dport=int(sys.argv[3]),flags='S')
 p1 = (ip)
 print("Sending",p1,"TTL",p1.ttl)
  
